@@ -1,0 +1,63 @@
+name: processon
+
+params:
+  type: object
+  properties:
+    PROCESSON_API_KEY:
+      type: string
+      description: ProcessOn API 密钥
+    BASE_URL:
+      type: string
+      description: ProcessOn API 基础URL（可选，默认 https://www.processon.com）
+  required:
+    - PROCESSON_API_KEY
+
+rest:
+  port: 9000
+  endpoint: /rest
+
+npx:
+  command: |
+    PROCESSON_API_KEY={PROCESSON_API_KEY} BASE_URL={BASE_URL} npx -y @chatmcp/mcp-server-processon
+  config: |
+    {
+      "mcpServers": {
+        "processon": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@chatmcp/mcp-server-processon"
+          ],
+          "env": {
+            "PROCESSON_API_KEY": "YOUR_API_KEY_HERE",
+            "BASE_URL": "https://www.processon.com"
+          }
+        }
+      }
+    }
+
+docker:
+  command: |
+    docker run -i --rm -e PROCESSON_API_KEY={PROCESSON_API_KEY} -e BASE_URL={BASE_URL} chatmcp/processon
+  config: |
+    {
+      "mcpServers": {
+        "processon": {
+          "command": "docker",
+          "args": [
+            "run",
+            "-i",
+            "--rm",
+            "-e",
+            "PROCESSON_API_KEY",
+            "-e",
+            "BASE_URL",
+            "chatmcp/processon"
+          ],
+          "env": {
+            "PROCESSON_API_KEY": "YOUR_API_KEY_HERE",
+            "BASE_URL": "https://www.processon.com"
+          }
+        }
+      }
+    }
