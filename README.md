@@ -128,6 +128,7 @@ npm publish --access public
 
 **说明**：
 1. @latest 可以替换成具体的版本号（例如 @1.0.9）
+
 2. 你的 ProcessOn API 密钥可在 [www.processon.com](https://www.processon.com/setting) 账户中心获取
 
 ```bash

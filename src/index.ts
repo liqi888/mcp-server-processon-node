@@ -93,7 +93,7 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
             // 格式化Content，组装文件定义结构
             const encodedContent = encodeMind(content);
             // 接口及参数
-            const url = `${apiBaseUrl}/api/activity/mcp/chart/create/mind`;
+            const url = `${apiBaseUrl}/api/activity/mcp/chart/v2/create/mind`;
             const payload = {
                 file_type: "mind",
                 folder: "root",
@@ -104,10 +104,10 @@ server.setRequestHandler(CallToolRequestSchema, async (req) => {
             const formData = qs.stringify(payload);
 
             try {
-                const response = await axios.post(url, formData, {
+                const response = await axios.post(url, payload, {
                     headers: {
                         "X-Mcp-ApiKey": apiKey,
-                        "Content-Type": "application/x-www-form-urlencoded",
+                        "Content-Type": "application/json",
                     },
                     timeout: 30_000,
                 });
