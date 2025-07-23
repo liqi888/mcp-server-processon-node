@@ -1,6 +1,6 @@
 {
   "name": "@processon/mcp-server-processon-node",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "ProcessOn MCP Server - create mind maps from markdown",
   "private": false,
   "type": "module",

@@ -23,7 +23,7 @@ dotenv.config();
 
 let API_BASE = "https://www.processon.com";
 const mcpName = "@processon/mcp-server-processon-node";
-const version = "1.0.9";
+const version = "1.0.10";
 
 /** 获取请求url **/
 function getApiBaseUrl(): string {
